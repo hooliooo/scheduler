@@ -1,0 +1,18 @@
+[package]
+name = "scheduler"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+async-trait = "0.1.89"
+axum = { version = "0.8.8", features = ["json", "tracing"], optional = true }
+futures = { version = "0.3.32", optional = true }
+tokio = { version = "1.49.0", features = ["full"], optional = true }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.22", features = ["env-filter", "json"] }
+
+[features]
+tokio = ["dep:axum", "dep:futures", "dep:tokio"]
+
+[dev-dependencies]
+reqwest = "0.13.2"
